@@ -1,0 +1,9 @@
+.tabs-sec {
+    border: 1px solid black;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.tabs-sec-body {
+    margin-top: 50px;
+}
