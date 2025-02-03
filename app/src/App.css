@@ -1,9 +1,26 @@
 .tabs-sec {
-    border: 1px solid black;
-    padding: 10px;
-    cursor: pointer;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.d-flex {
+  display: flex;
 }
 
 .tabs-sec-body {
-    margin-top: 50px;
+  margin-top: 50px;
+}
+
+.App {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.active {
+  background-color: red;
+  color: #fff;
+}
+
+.tabs {
+  padding: 10px;
 }
