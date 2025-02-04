@@ -7,6 +7,12 @@ import "./App.css";
 function App() {
   const [activeTabs, showActiveTabs] = useState(0);
 
+  const { data, setData } = useState({
+    name: "Bhargav",
+    age: "29",
+    email: "bhargavgopallanke@gmail.com",
+  });
+
   const tabs = [
     {
       name: "profile",
@@ -33,7 +39,7 @@ function App() {
               <div
                 onClick={() => showActiveTabs(index)}
                 className={index !== activeTabs ? null : "active"}
-                style={{padding: "10px"}}
+                style={{ padding: "10px" }}
               >
                 {t.name}
               </div>
@@ -42,7 +48,7 @@ function App() {
         })}
       </div>
       <div className="tabs-sec-body">
-        <ActiveComponent />
+        <ActiveComponent data={data} setData={() => setData} />
       </div>
     </div>
   );
