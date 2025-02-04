@@ -32,8 +32,6 @@ function App() {
 
   const ActiveComponent = tabs[activeTabs].component;
 
-  console.log("data", data);
-
   return (
     <div className="App">
       <div className="d-flex">
