@@ -7,10 +7,12 @@ import "./App.css";
 function App() {
   const [activeTabs, showActiveTabs] = useState(0);
 
-  const { data, setData } = useState({
+  const [data, setData] = useState({
     name: "Bhargav",
     age: "29",
     email: "bhargavgopallanke@gmail.com",
+    interests: ["Coding", "Sports"],
+    theme: "dark",
   });
 
   const tabs = [
@@ -29,6 +31,8 @@ function App() {
   ];
 
   const ActiveComponent = tabs[activeTabs].component;
+
+  console.log("data", data);
 
   return (
     <div className="App">
