@@ -50,7 +50,7 @@ function App() {
         })}
       </div>
       <div className="tabs-sec-body">
-        <ActiveComponent data={data} setData={() => setData} />
+        <ActiveComponent data={data} setData={setData} />
       </div>
     </div>
   );

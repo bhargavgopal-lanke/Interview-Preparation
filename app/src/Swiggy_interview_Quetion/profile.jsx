@@ -4,8 +4,6 @@ const Profile = ({ data, setData }) => {
   // optional chaining
   const { name, age, email } = data || {};
 
-  console.log(data)
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setData((prevState) => ({
