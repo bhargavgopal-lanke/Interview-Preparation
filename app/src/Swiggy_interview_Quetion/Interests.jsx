@@ -1,6 +1,6 @@
 import React from "react";
 
-const Interests = ({ data, setData }) => {
+const Interests = ({ data, setData, errors }) => {
   const { interests } = data || "";
 
   const handleChange = (e) => {
@@ -26,6 +26,7 @@ const Interests = ({ data, setData }) => {
           />
           Coding
         </label>
+        {errors.interests && <span className="error-msgs">{errors.interests}</span>}
       </div>
       <div>
         <label>
@@ -37,6 +38,7 @@ const Interests = ({ data, setData }) => {
           />
           Sports
         </label>
+        {errors.interests && <span className="error-msgs">{errors.interests}</span>}
       </div>
       <div>
         <label>
@@ -48,6 +50,7 @@ const Interests = ({ data, setData }) => {
           />
           Javascript
         </label>
+        {errors.interests && <span className="error-msgs">{errors.interests}</span>}
       </div>
     </div>
   );

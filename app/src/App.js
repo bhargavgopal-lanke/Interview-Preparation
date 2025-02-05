@@ -34,10 +34,6 @@ function App() {
       },
     },
     {
-      name: "settings",
-      component: Settings,
-    },
-    {
       name: "interests",
       component: Interests,
       validate: () => {
@@ -49,12 +45,18 @@ function App() {
         return err.interests ? false : true;
       },
     },
+    {
+      name: "settings",
+      component: Settings,
+    },
   ];
 
   const ActiveComponent = tabs[activeTabs].component;
 
   const handleNextClick = () => {
-    showActiveTabs((prevState) => prevState + 1);
+    if (tabs[activeTabs].validate()) {
+      showActiveTabs((prevState) => prevState + 1);
+    }
   };
 
   const handlePrevClick = () => {
@@ -83,7 +85,6 @@ function App() {
           data={data}
           setData={setData}
           errors={errors}
-          setErrors={setErrors}
         />
       </div>
       <div>
