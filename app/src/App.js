@@ -48,6 +48,9 @@ function App() {
     {
       name: "settings",
       component: Settings,
+      validate: () => {
+        return true;
+      },
     },
   ];
 
@@ -81,11 +84,7 @@ function App() {
         })}
       </div>
       <div className="tabs-sec-body">
-        <ActiveComponent
-          data={data}
-          setData={setData}
-          errors={errors}
-        />
+        <ActiveComponent data={data} setData={setData} errors={errors} />
       </div>
       <div>
         {/* 0 > 0 condition is false no prev button */}
