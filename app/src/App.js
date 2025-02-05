@@ -40,9 +40,6 @@ function App() {
     showActiveTabs((prevState) => prevState - 1);
   };
 
-  console.log("activetabs", activeTabs);
-  console.log("tabs", 2 < 2);
-
   return (
     <div className="App">
       <div className="d-flex">
