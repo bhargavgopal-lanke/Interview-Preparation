@@ -5,12 +5,13 @@ const Interests = ({ data, setData }) => {
 
   const handleChange = (e) => {
     const { name, checked } = e.target;
+
     setData((prevState) => ({
       ...prevState,
       interests: checked
         ? [...prevState.interests, name]
         : prevState.interests.filter((i) => i !== name),
-    }));
+    })); 
   };
 
   return (

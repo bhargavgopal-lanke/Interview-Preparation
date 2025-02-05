@@ -6,6 +6,7 @@ import "./App.css";
 
 function App() {
   const [activeTabs, showActiveTabs] = useState(0);
+  const [errors, setErrors] = useState({});
 
   const [data, setData] = useState({
     name: "Bhargav",
@@ -19,6 +20,18 @@ function App() {
     {
       name: "profile",
       component: Profile,
+      validate: () => {
+        const err = {};
+        if (!data.name || data.name.length < 2) {
+          err.name = "Name is not valid";
+        } else if (!data.age || data.age < 18) {
+          err.age = "Age is not valid";
+        } else if (!data.email || data.email.length < 2) {
+          err.email = "Email is not valid";
+        }
+        setErrors(err);
+        return err.name || err.age || err.email ? false : true;
+      },
     },
     {
       name: "settings",
@@ -27,6 +40,14 @@ function App() {
     {
       name: "interests",
       component: Interests,
+      validate: () => {
+        const err = {};
+        if (data.interests.length < 1) {
+          err.interests = "interests are not valid";
+        }
+        setErrors(err);
+        return err.interests ? false : true;
+      },
     },
   ];
 
@@ -58,7 +79,12 @@ function App() {
         })}
       </div>
       <div className="tabs-sec-body">
-        <ActiveComponent data={data} setData={setData} />
+        <ActiveComponent
+          data={data}
+          setData={setData}
+          errors={errors}
+          setErrors={setErrors}
+        />
       </div>
       <div>
         {/* 0 > 0 condition is false no prev button */}
