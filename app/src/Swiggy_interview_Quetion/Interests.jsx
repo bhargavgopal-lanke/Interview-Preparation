@@ -1,16 +1,17 @@
 import React from "react";
 
-const Interests = ({ data, setData }) => {
+const Interests = ({ data, setData, errors }) => {
   const { interests } = data || "";
 
   const handleChange = (e) => {
     const { name, checked } = e.target;
+
     setData((prevState) => ({
       ...prevState,
       interests: checked
         ? [...prevState.interests, name]
         : prevState.interests.filter((i) => i !== name),
-    }));
+    })); 
   };
 
   return (
@@ -25,6 +26,7 @@ const Interests = ({ data, setData }) => {
           />
           Coding
         </label>
+        {errors.interests && <span className="error-msgs">{errors.interests}</span>}
       </div>
       <div>
         <label>
@@ -36,6 +38,7 @@ const Interests = ({ data, setData }) => {
           />
           Sports
         </label>
+        {errors.interests && <span className="error-msgs">{errors.interests}</span>}
       </div>
       <div>
         <label>
@@ -47,6 +50,7 @@ const Interests = ({ data, setData }) => {
           />
           Javascript
         </label>
+        {errors.interests && <span className="error-msgs">{errors.interests}</span>}
       </div>
     </div>
   );

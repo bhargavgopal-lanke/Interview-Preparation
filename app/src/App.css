@@ -5,6 +5,7 @@
 
 .d-flex {
   display: flex;
+  gap: 20px;
 }
 
 .tabs-sec-body {
@@ -27,4 +28,35 @@
 
 .form-group {
   margin-bottom: 15px;
+}
+
+.error-msgs {
+  color: red;
+  font-weight: bold;
+}
+
+.paginatoncard{
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  border: 1px solid;
+}
+
+.flex {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pagination {
+  margin: 30px 0;
+  text-align: center;
+}
+
+.pagination .num {
+  padding: 10px;
+  border: 1px solid;
+  cursor: pointer;
 }
