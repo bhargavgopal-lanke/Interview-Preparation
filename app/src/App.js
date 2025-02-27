@@ -6,6 +6,7 @@ import "./App.css";
 
 function App() {
   const [activeTabs, showActiveTabs] = useState(0);
+  const [errors, setErrors] = useState({});
 
   const [data, setData] = useState({
     name: "Bhargav",
@@ -19,21 +20,46 @@ function App() {
     {
       name: "profile",
       component: Profile,
-    },
-    {
-      name: "settings",
-      component: Settings,
+      validate: () => {
+        const err = {};
+        if (!data.name || data.name.length < 2) {
+          err.name = "Name is not valid";
+        } else if (!data.age || data.age < 18) {
+          err.age = "Age is not valid";
+        } else if (!data.email || data.email.length < 2) {
+          err.email = "Email is not valid";
+        }
+        setErrors(err);
+        return err.name || err.age || err.email ? false : true;
+      },
     },
     {
       name: "interests",
       component: Interests,
+      validate: () => {
+        const err = {};
+        if (data.interests.length < 1) {
+          err.interests = "interests are not valid";
+        }
+        setErrors(err);
+        return err.interests ? false : true;
+      },
+    },
+    {
+      name: "settings",
+      component: Settings,
+      validate: () => {
+        return true;
+      },
     },
   ];
 
   const ActiveComponent = tabs[activeTabs].component;
 
   const handleNextClick = () => {
-    showActiveTabs((prevState) => prevState + 1);
+    if (tabs[activeTabs].validate()) {
+      showActiveTabs((prevState) => prevState + 1);
+    }
   };
 
   const handlePrevClick = () => {
@@ -58,7 +84,7 @@ function App() {
         })}
       </div>
       <div className="tabs-sec-body">
-        <ActiveComponent data={data} setData={setData} />
+        <ActiveComponent data={data} setData={setData} errors={errors} />
       </div>
       <div>
         {/* 0 > 0 condition is false no prev button */}

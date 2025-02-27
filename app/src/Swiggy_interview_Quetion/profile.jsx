@@ -1,6 +1,6 @@
 import React from "react";
 
-const Profile = ({ data, setData }) => {
+const Profile = ({ data, setData, errors }) => {
   // optional chaining
   const { name, age, email } = data || {};
 
@@ -17,10 +17,12 @@ const Profile = ({ data, setData }) => {
       <div className="form-group">
         <label>Name:</label>
         <input type="text" name="name" value={name} onChange={handleChange} />
+        {errors.name && <span className="error-msgs">{errors.name}</span>}
       </div>
       <div className="form-group">
         <label>Age:</label>
         <input type="number" name="age" value={age} onChange={handleChange} />
+        {errors.age && <span className="error-msgs">{errors.age}</span>}
       </div>
       <div className="form-group">
         <label>Email:</label>
@@ -30,6 +32,7 @@ const Profile = ({ data, setData }) => {
           value={email}
           onChange={handleChange}
         />
+        {errors.email && <span className="error-msgs">{errors.email}</span>}
       </div>
     </div>
   );
