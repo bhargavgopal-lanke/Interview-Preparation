@@ -4,14 +4,22 @@ import SerachList from "./SerachList";
 const Search = () => {
   const [recipe, setRecipe] = useState([]);
   const [searchInput, setSearchInput] = useState("");
+  const [cacheResult, setCacheResult] = useState({});
 
   const fetchData = async () => {
+    if (cacheResult[searchInput]) {
+      setRecipe(cacheResult[searchInput]);
+      return;
+    }
     const data = await fetch(
       "https://dummyjson.com/recipes/search?q=" + searchInput
     );
     const json = await data.json();
-    console.log("json", json?.recipes);
     setRecipe(json?.recipes);
+    setCacheResult((prevState) => ({
+      ...prevState,
+      [searchInput]: json?.recipes,
+    }));
   };
 
   useEffect(() => {
