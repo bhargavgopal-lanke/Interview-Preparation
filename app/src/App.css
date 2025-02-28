@@ -60,3 +60,7 @@
   border: 1px solid;
   cursor: pointer;
 }
+
+.serachlist img {
+  width: 200px;
+}
