@@ -14,11 +14,12 @@ const Todo = () => {
   };
 
   const handleDelete = (index) => {
-    console.log("selectedindex", index);
     const deleteItem = item.filter((todo) => todo.id !== index);
     setItem(deleteItem);
-    console.log("delete", deleteItem);
   };
+
+  const moveUp = () => {};
+  const moveDown = () => {};
 
   return (
     <div>
@@ -47,6 +48,8 @@ const Todo = () => {
                 >
                   Delete
                 </button>
+                <button onClick={moveUp}>⬆️</button>
+                <button onClick={moveDown}>⬇️⬇</button>
               </div>
             );
           })}
