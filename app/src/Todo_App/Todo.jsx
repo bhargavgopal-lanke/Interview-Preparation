@@ -6,8 +6,10 @@ const Todo = () => {
   const [nextId, setNextId] = useState(0);
 
   const handleChange = () => {
-    setNextId((prevState) => prevState + 1);
-    setItem([...item, { id: nextId, name: input }]);
+    if (input.trim() !== "") {
+      setNextId((prevState) => prevState + 1);
+      setItem([...item, { id: nextId, name: input }]);
+    }
     setInput("");
   };
 
