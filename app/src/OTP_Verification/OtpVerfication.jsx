@@ -6,6 +6,8 @@ const OtpVerfication = () => {
 
   const handleChange = (e, index) => {
     const value = e.target.value;
+    // allow only number no text
+    if (isNaN(value)) return;
     let newArr = [...otp];
     newArr[index] = value;
     setOtp(newArr);
