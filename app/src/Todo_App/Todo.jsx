@@ -14,10 +14,29 @@ const Todo = () => {
   };
 
   const handleDelete = (index) => {
-    console.log("selectedindex", index);
     const deleteItem = item.filter((todo) => todo.id !== index);
     setItem(deleteItem);
-    console.log("delete", deleteItem);
+  };
+
+  const moveUp = (index) => {
+    if (index > 0) {
+      const updatedTask = [...item];
+      [updatedTask[index], updatedTask[index - 1]] = [
+        updatedTask[index - 1],
+        updatedTask[index]
+      ];
+      setItem(updatedTask);
+    }
+  };
+  const moveDown = (index) => {
+    if (index < item.length - 1) {
+      const updatedTask = [...item];
+      [updatedTask[index], updatedTask[index + 1]] = [
+        updatedTask[index + 1],
+        updatedTask[index]
+      ];
+      setItem(updatedTask);
+    }
   };
 
   return (
@@ -36,16 +55,34 @@ const Todo = () => {
         <label>
           {item.map((x) => {
             return (
-              <div style={{ display: "flex" }}>
+              <div
+                style={{
+                  display: "flex",
+                  gap: "20px",
+                  marginBottom: "30px",
+                  alignContent: "center",
+                }}
+              >
                 <ul key={x.id}>
-                  <li>{x.id}</li>
                   <li>{x.name}</li>
                 </ul>
                 <button
-                  style={{ marginLeft: "10px" }}
+                  style={{ padding: "10px", width: "100px", height: "40px" }}
                   onClick={() => handleDelete(x?.id)}
                 >
                   Delete
+                </button>
+                <button
+                  onClick={() => moveUp(x.id)}
+                  style={{ padding: "10px", width: "100px", height: "40px" }}
+                >
+                  ⬆️
+                </button>
+                <button
+                  onClick={() => moveDown(x.id)}
+                  style={{ padding: "10px", width: "100px", height: "40px" }}
+                >
+                  ⬇️
                 </button>
               </div>
             );
