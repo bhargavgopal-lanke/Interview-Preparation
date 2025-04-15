@@ -5,8 +5,11 @@ const OtpVerfication = () => {
   const [otp, setOtp] = useState(new Array(NO_OF_INPUTS).fill(""));
 
   const handleChange = (e, index) => {
-    
-  }
+    const value = e.target.value;
+    let newArr = [...otp];
+    newArr[index] = value;
+    setOtp(newArr);
+  };
 
   return (
     <div>
@@ -14,6 +17,7 @@ const OtpVerfication = () => {
         return (
           <>
             <input
+              key={index}
               type="text"
               value={otp[index]}
               onChange={(e) => handleChange(e, index)}
