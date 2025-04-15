@@ -46,7 +46,7 @@ const Pagination = () => {
             >
               ◀️
             </button>
-            {[...Array(10).keys()].map((n) => {
+            {[...Array(noOfPages).keys()].map((n) => {
               return (
                 <span
                   className={currentPage === n ? "num active" : "num"}

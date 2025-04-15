@@ -4,12 +4,16 @@ import ReactDOM from "react-dom/client";
 import './App.css';
 // import Pagination from "./Pagination/Pagination";
 import Search from "./AutoComplete_Search/search";
+import Todo from "./Todo_App/Todo";
+import OtpVerfication from "./OTP_Verification/OtpVerfication";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     {/* <Pagination /> */}
-    <Search />
+    {/* <Search /> */}
+    {/* <Todo /> */}
+    <OtpVerfication />
   </React.StrictMode>
 );
 
