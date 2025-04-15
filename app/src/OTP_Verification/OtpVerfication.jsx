@@ -9,7 +9,7 @@ const OtpVerfication = () => {
     // allow only number no text
     if (isNaN(value)) return;
     let newArr = [...otp];
-    newArr[index] = value;
+    newArr[index] = value.slice(-1);
     setOtp(newArr);
   };
 
